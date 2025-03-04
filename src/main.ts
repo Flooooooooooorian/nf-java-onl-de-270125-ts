@@ -1,3 +1,7 @@
+import {Product} from "./Product.ts";
+import {ProductDto} from "./Product.ts";
+
+
 console.log("Hello World");
 
 let name: string = "florian";
@@ -105,3 +109,47 @@ const newNames = names.filter(element => element)
     .some(element => element === 'f')
 
 console.log(newNames)
+
+console.log("--------------")
+
+function myFunction2(myNumber: number, myString: string): string {
+    console.log(myString)
+    console.log(myNumber)
+    return myString + myNumber
+}
+
+function myFunction45(myNumber: number, myString: string): string {
+    console.log("GANZ ANDERS")
+    return myString + myNumber
+}
+
+// const function2: (myNumber: number, myString: string) => string = myFunction2;
+
+type MyFunctionType = (myNumber: number, myString: string) => string
+
+function a(functionParameter: MyFunctionType) {
+    console.log(functionParameter(1, "f"));
+}
+
+a(myFunction2)
+a(myFunction45)
+
+const product1: Product = {id: "123", name: "Apple", price: 1.5, description: "Lecker roter Apfel", amount: 10}
+const product2: Product = {id: 123, name: "Apple", price: 1.5, amount: 10}
+
+const productToSave: ProductDto = {name: "Banana", price: 0.9, description: "Gelb", amount: 5}
+
+function saveProduct(product: ProductDto) {
+    // console.log(product.id)
+    console.log(product)
+}
+
+saveProduct(product1);
+
+function updateProduct(product: Product) {
+    console.log(product)
+}
+
+// console.log(JSON.stringify(product1))
+
+
